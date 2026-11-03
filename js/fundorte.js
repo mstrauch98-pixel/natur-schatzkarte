@@ -4,8 +4,19 @@
 // =========================================================
 
 const ARTEN = {
-  esskastanie: { name: "Esskastanie", essbar: true, farbe: "#9B6042" },
-  rosskastanie: { name: "Rosskastanie", essbar: false, farbe: "#A3412E" },
+  rosskastanie: {
+    name: "Rosskastanie",
+    farbe: "#9B6042",
+    badges: [
+      { text: "Zum Basteln", klasse: "badge-play" },
+      { text: "Nicht essbar", klasse: "badge-no" },
+    ],
+  },
+  esskastanie: {
+    name: "Esskastanie",
+    farbe: "#244A3C",
+    badges: [{ text: "Essbar", klasse: "badge-yes" }],
+  },
 };
 
 const ZUGANG = {
@@ -30,6 +41,39 @@ const SAISON = {
 const BEISPIEL_FUNDORTE = [
   {
     id: 1,
+    name: "Kastanienallee im Stadtpark",
+    art: "rosskastanie",
+    lat: 48.7606,
+    lng: 8.2398,
+    beschreibung: "Lange Allee mit vielen Bäumen – im Herbst liegen hier jede Menge Kastanien.",
+    zugang: "oeffentlich",
+    sammeln: "erlaubt",
+    saison: "vorbei",
+  },
+  {
+    id: 2,
+    name: "Große Kastanie am Spielplatz",
+    art: "rosskastanie",
+    lat: 49.4875,
+    lng: 8.4660,
+    beschreibung: "Ein mächtiger Baum direkt neben dem Spielplatz, Bänke in der Nähe.",
+    zugang: "oeffentlich",
+    sammeln: "erlaubt",
+    saison: "vorbei",
+  },
+  {
+    id: 3,
+    name: "Kastanien an der Uferpromenade",
+    art: "rosskastanie",
+    lat: 49.0069,
+    lng: 8.4037,
+    beschreibung: "Mehrere Bäume entlang des Spazierwegs am Wasser.",
+    zugang: "oeffentlich",
+    sammeln: "erlaubt",
+    saison: "vorbei",
+  },
+  {
+    id: 4,
     name: "Esskastanien am Waldrand",
     art: "esskastanie",
     lat: 49.2925,
@@ -40,18 +84,7 @@ const BEISPIEL_FUNDORTE = [
     saison: "vorbei",
   },
   {
-    id: 2,
-    name: "Alte Kastanie am Weinberg",
-    art: "esskastanie",
-    lat: 49.4626,
-    lng: 8.1592,
-    beschreibung: "Einzelner, sehr alter Baum direkt am Feldweg.",
-    zugang: "oeffentlich",
-    sammeln: "unklar",
-    saison: "vorbei",
-  },
-  {
-    id: 3,
+    id: 5,
     name: "Kastanienhain am Hang",
     art: "esskastanie",
     lat: 49.5512,
@@ -59,17 +92,6 @@ const BEISPIEL_FUNDORTE = [
     beschreibung: "Kleiner Hain mit vielen Bäumen, Wege teils steil.",
     zugang: "eingeschraenkt",
     sammeln: "erlaubnis",
-    saison: "vorbei",
-  },
-  {
-    id: 4,
-    name: "Rosskastanien im Stadtpark",
-    art: "rosskastanie",
-    lat: 48.7606,
-    lng: 8.2398,
-    beschreibung: "Schöne Allee – die Früchte sind aber nicht essbar.",
-    zugang: "oeffentlich",
-    sammeln: "erlaubt",
     saison: "vorbei",
   },
 ];

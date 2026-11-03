@@ -330,7 +330,7 @@ a { color: var(--waldgruen); }
   border-top: 6px solid var(--waldgruen);
 }
 
-.compare-no { border-top-color: var(--rot); }
+.compare-play { border-top-color: var(--kastanie); }
 
 .badge {
   display: inline-block;
@@ -345,6 +345,7 @@ a { color: var(--waldgruen); }
 
 .badge-yes { background: #E3EBDF; color: var(--waldgruen); }
 .badge-no  { background: #F5E1DB; color: var(--rot); }
+.badge-play { background: #F1E3D8; color: var(--kastanie); }
 
 .latin {
   font-style: italic;

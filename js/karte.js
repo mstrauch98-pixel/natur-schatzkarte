@@ -145,9 +145,9 @@ function sicher(text) {
 // ---------- Infofenster ----------
 function popupInhalt(ort) {
   const art = ARTEN[ort.art];
-  const badge = art.essbar
-    ? '<span class="badge badge-yes">Essbar</span>'
-    : '<span class="badge badge-no">Nicht essbar</span>';
+  const badge = art.badges
+    .map((b) => `<span class="badge ${b.klasse}">${sicher(b.text)}</span>`)
+    .join(" ");
 
   const zugangWarnung = ort.zugang !== "oeffentlich" ? ' class="warnung"' : "";
 
