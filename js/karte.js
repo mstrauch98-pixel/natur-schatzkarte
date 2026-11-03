@@ -168,7 +168,9 @@ function popupInhalt(ort) {
 // ---------- Marker setzen ----------
 const marker = [];
 
-BEISPIEL_FUNDORTE.forEach((ort) => {
+function setzeMarker(ort) {
+  if (!ARTEN[ort.art]) return; // unbekannte Art überspringen
+
   const el = document.createElement("div");
   el.className = "marker";
   el.setAttribute("aria-label", ort.name);
@@ -192,19 +194,42 @@ BEISPIEL_FUNDORTE.forEach((ort) => {
   });
 
   marker.push({ ort, m, el });
-});
+}
+
+// ---------- Fundorte aus der Datenbank laden ----------
+async function ladeFundorte() {
+  const { data, error } = await db
+    .from("fundorte")
+    .select("id, name, art, lat, lng, beschreibung, zugang, sammeln, saison");
+
+  if (error) {
+    console.error(error);
+    meldung("Die Fundorte konnten gerade nicht geladen werden. Bitte versuche es später noch einmal.");
+    return;
+  }
+
+  data.forEach(setzeMarker);
+  aktuellenFilterAnwenden();
+}
+
+ladeFundorte();
 
 // ---------- Filter ----------
+let aktiverFilter = "alle";
+
+function aktuellenFilterAnwenden() {
+  marker.forEach(({ ort, m, el }) => {
+    const sichtbar = aktiverFilter === "alle" || ort.art === aktiverFilter;
+    el.style.display = sichtbar ? "" : "none";
+    if (!sichtbar && m.getPopup().isOpen()) m.togglePopup();
+  });
+}
+
 document.querySelectorAll(".chip").forEach((chip) => {
   chip.addEventListener("click", () => {
     document.querySelectorAll(".chip").forEach((c) => c.classList.remove("aktiv"));
     chip.classList.add("aktiv");
-
-    const filter = chip.dataset.filter;
-    marker.forEach(({ ort, m, el }) => {
-      const sichtbar = filter === "alle" || ort.art === filter;
-      el.style.display = sichtbar ? "" : "none";
-      if (!sichtbar && m.getPopup().isOpen()) m.togglePopup();
-    });
+    aktiverFilter = chip.dataset.filter;
+    aktuellenFilterAnwenden();
   });
 });

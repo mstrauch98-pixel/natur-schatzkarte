@@ -1,6 +1,6 @@
 // =========================================================
-// Beispiel-Fundorte (nur zum Testen der Karte)
-// In Phase 4 kommen die echten Einträge aus der Datenbank.
+// Bezeichnungen für Arten, Zugang, Sammeln und Saison
+// Die Fundorte selbst kommen aus der Supabase-Datenbank.
 // =========================================================
 
 const ARTEN = {
@@ -37,61 +37,3 @@ const SAISON = {
   bald: "Saison beginnt bald",
   vorbei: "Saison beendet",
 };
-
-const BEISPIEL_FUNDORTE = [
-  {
-    id: 1,
-    name: "Kastanienallee im Stadtpark",
-    art: "rosskastanie",
-    lat: 48.7606,
-    lng: 8.2398,
-    beschreibung: "Lange Allee mit vielen Bäumen – im Herbst liegen hier jede Menge Kastanien.",
-    zugang: "oeffentlich",
-    sammeln: "erlaubt",
-    saison: "vorbei",
-  },
-  {
-    id: 2,
-    name: "Große Kastanie am Spielplatz",
-    art: "rosskastanie",
-    lat: 49.4875,
-    lng: 8.4660,
-    beschreibung: "Ein mächtiger Baum direkt neben dem Spielplatz, Bänke in der Nähe.",
-    zugang: "oeffentlich",
-    sammeln: "erlaubt",
-    saison: "vorbei",
-  },
-  {
-    id: 3,
-    name: "Kastanien an der Uferpromenade",
-    art: "rosskastanie",
-    lat: 49.0069,
-    lng: 8.4037,
-    beschreibung: "Mehrere Bäume entlang des Spazierwegs am Wasser.",
-    zugang: "oeffentlich",
-    sammeln: "erlaubt",
-    saison: "vorbei",
-  },
-  {
-    id: 4,
-    name: "Esskastanien am Waldrand",
-    art: "esskastanie",
-    lat: 49.2925,
-    lng: 8.1302,
-    beschreibung: "Mehrere große Esskastanien entlang des Wanderwegs.",
-    zugang: "oeffentlich",
-    sammeln: "erlaubt",
-    saison: "vorbei",
-  },
-  {
-    id: 5,
-    name: "Kastanienhain am Hang",
-    art: "esskastanie",
-    lat: 49.5512,
-    lng: 8.6824,
-    beschreibung: "Kleiner Hain mit vielen Bäumen, Wege teils steil.",
-    zugang: "eingeschraenkt",
-    sammeln: "erlaubnis",
-    saison: "vorbei",
-  },
-];
