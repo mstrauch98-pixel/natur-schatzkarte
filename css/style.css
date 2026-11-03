@@ -285,7 +285,7 @@ a { color: var(--waldgruen); }
 
 /* ===================== KARTEN-PLATZHALTER ===================== */
 
-.map-placeholder {
+.map-teaser {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -299,8 +299,19 @@ a { color: var(--waldgruen); }
   color: var(--text-leise);
 }
 
-.map-placeholder img { margin-bottom: 16px; opacity: 0.85; }
-.map-placeholder p { margin: 0 0 4px; }
+.map-teaser {
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.map-teaser:hover {
+  border-color: var(--waldgruen);
+  background: var(--weiss);
+}
+
+.map-teaser img { margin-bottom: 16px; }
+.map-teaser p { margin: 0 0 4px; }
+.map-teaser .btn { margin-top: 18px; }
 
 /* ===================== VERGLEICH ===================== */
 

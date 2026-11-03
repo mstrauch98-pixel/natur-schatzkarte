@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Karte – Natur-Schatzkarte</title>
+  <meta name="theme-color" content="#244A3C">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/karte.css">
+</head>
+<body class="karten-seite">
+
+  <header class="map-header">
+    <a href="index.html" class="brand" aria-label="Zur Startseite">
+      <img src="icon.svg" alt="" width="32" height="32">
+      <span>Natur-Schatzkarte</span>
+    </a>
+
+    <div class="filter" role="group" aria-label="Fundorte filtern">
+      <button class="chip aktiv" data-filter="alle">Alle</button>
+      <button class="chip" data-filter="esskastanie">Esskastanie</button>
+      <button class="chip" data-filter="rosskastanie">Rosskastanie</button>
+    </div>
+  </header>
+
+  <div id="map" aria-label="Karte mit Naturfundorten"></div>
+
+  <div class="test-hinweis">
+    Testversion: Die Fundorte sind Beispiele und nicht geprüft.
+  </div>
+
+  <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+  <script src="js/fundorte.js"></script>
+  <script src="js/karte.js"></script>
+</body>
+</html>
