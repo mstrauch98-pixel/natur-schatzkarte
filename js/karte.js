@@ -66,7 +66,7 @@ function standortFehler(fehler, knopf) {
   knopf.classList.remove("laedt");
 
   if (fehler.code === 1) {
-    meldung("Standort nicht erlaubt. Prüfe in den iPad-Einstellungen unter Datenschutz → Ortungsdienste → Safari-Websites.");
+    meldung("Standort nicht erlaubt. Bitte erlaube den Standortzugriff für diese Seite in den Einstellungen deines Geräts oder Browsers.");
   } else if (fehler.code === 3) {
     meldung("Der Standort konnte nicht schnell genug ermittelt werden. Bitte versuche es noch einmal.");
   } else {
