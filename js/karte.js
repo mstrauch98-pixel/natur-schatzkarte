@@ -11,6 +11,21 @@ const map = new maplibregl.Map({
   attributionControl: { compact: true },
 });
 
+// Ortsnamen auf Deutsch anzeigen (sonst Originalname)
+map.on("style.load", () => {
+  map.getStyle().layers.forEach((layer) => {
+    const feld = layer.layout && layer.layout["text-field"];
+    // Nur Beschriftungen mit Ortsnamen ändern, keine Hausnummern oder Straßennummern
+    if (layer.type === "symbol" && feld && JSON.stringify(feld).includes("name")) {
+      map.setLayoutProperty(layer.id, "text-field", [
+        "coalesce",
+        ["get", "name:de"],
+        ["get", "name"],
+      ]);
+    }
+  });
+});
+
 // Zoom-Knöpfe
 map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
 
